@@ -70,9 +70,9 @@ def main():
         print("Error: Interactive chat mode requires a terminal.", file=sys.stderr)
         sys.exit(1)
 
-    # Get prompt from args or stdin
-    prompt = " ".join(args.prompt).strip()
-    if not prompt and not sys.stdin.isatty():
+    # Get prompt from args or stdin#
+    if not prompt.strip() and not sys.stdin.isatty():
+        print("Empty prompt from the config file. Reading the prompt from stdin")
         prompt = sys.stdin.read().strip()
 
     if args.chat:
